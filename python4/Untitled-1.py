@@ -40,9 +40,8 @@ class Kütüphane:
         bulundu = False
         with open(self.dosya_adı, "w") as dosya:
             for i, kitap in enumerate(kitaplar):
-                if i == 0:
-                    dosya.write(kitap)
-                elif silinecek.lower() not in kitap.lower():
+                b = kitap.strip().split(",")
+                if silinecek.lower() != b[0].lower():
                     dosya.write(kitap)
                 else:
                     bulundu = True
